@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: gray;
+  height: 640px;
+}
+</style>
+</head>
+<body>
+	<div style="height: 30px;font-size:18px;padding-top: 4px;padding-left: 2px;">SpaceX Launch Programs</div>  		
+			<div class="float-child-first">
+			    <div class="green"><h4>Filters</h4></div>
+			    <h5 style="text-decoration: underline;">Launch Year</h5>
+			    	<div class="row" style="float: left;margin-top: -24px;">
+			    		<p class="borders" (click)="sortBy(2006)">2006</p>
+			    		<p class="borders" (click)="sortBy(2008)">2008</p>
+			    		<p class="borders" (click)="sortBy(2010)">2010</p>
+			    		<p class="borders" (click)="sortBy(2012)">2012</p>
+			    		<p class="borders" (click)="sortBy(2014)">2014</p>
+			    		<p class="borders" (click)="sortBy(2016)">2016</p>
+			    		<p class="borders" (click)="sortBy(2018)">2018</p>
+			    		<p class="borders" (click)="sortBy(2020)">2020</p>
+			    	</div>
+			    	<div class="row" style="float: right;margin-top: -24px;">
+			    		<p class="borders" (click)="sortBy(2007)">2007</p>
+			    		<p class="borders" (click)="sortBy(2009)">2009</p>
+			    		<p class="borders" (click)="sortBy(2011)">2011</p>
+			    		<p class="borders" (click)="sortBy(2013)">2013</p>
+			    		<p class="borders" (click)="sortBy(2015)">2015</p>
+			    		<p class="borders" (click)="sortBy(2017)">2017</p>
+			    		<p class="borders" (click)="sortBy(2019)">2019</p>
+			    	</div>
+			    <div class="row" style="padding-top: 250px;">
+				    <h5 style="text-decoration: underline;padding-top: 10px;">Successful Launch </h5>
+				    	<div class="row" style="float: left;margin-top: -24px;">
+				    		<p class="borders" (click)="launchBy(true)">True</p>
+				    	</div>
+				    	<div class="row" style="float: right;margin-top: -24px;">
+				    		<p class="borders" (click)="launchBy(false)">False</p>
+				    	</div>
+				</div>
+				<div class="row" style="padding-top: 10px;">
+				    <h5 style="text-decoration: underline;">Successful Landing</h5>
+				    	<div class="row" style="float: left;margin-top: -24px;">
+				    		<p class="borders" (click)="launchBy(true)">True</p>
+				    	</div>
+				    	<div class="row" style="float: right;margin-top: -24px;">
+				    		<p class="borders" (click)="launchBy(false)">False</p>
+				    	</div>
+			    </div>
+			</div>
+			  
+			<div class="float-child-second">
+				<ul>
+					<li *ngFor="let order of orderList">
+						<span class="imageDisplay">
+							<img src="{{order.links.mission_patch}}">
+						</span>
+						<span class="content">
+					  		<h4 style="font-weight: bold;">{{ order.mission_name }} #{{order.flight_number}}</h4>
+					  		<span class="content1">Mission ID: {{ order.mission_id }}</span>
+					  		<br>
+					  		<span class="content1">Launcg Year: {{ order.launch_year }}</span>
+					  		<br>
+					  		<span class="content1">Successful Launch: {{ order.launch_success }}</span>	
+					  		<br>		
+					  		<span class="content1">Successful Landing: {{ order.launch_success }}</span>
+						</span>
+					</li>	   
+				</ul>
+			</div>
+			<span style="text-align: center;padding-left: 600px;">Developed By {{ developerName }}</span>
+</body>
+</html>
